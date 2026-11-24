@@ -18,10 +18,13 @@
             @foreach ($faqs as $index => $faq)
                 <div
                     class="faq-item rounded-2xl bg-white dark:bg-slatebg-900 border border-slate-200 dark:border-slate-800 shadow-sm overflow-hidden"
+                    :data-open="openFaq === {{ $index }} ? 'true' : 'false'"
                     data-open="{{ $index === 0 ? 'true' : 'false' }}"
                 >
                     <button
                         type="button"
+                        @click="toggleFaq({{ $index }})"
+                        :aria-expanded="(openFaq === {{ $index }}).toString()"
                         class="w-full flex items-center justify-between gap-4 px-5 py-4 text-left font-semibold text-sm sm:text-base text-slate-900 dark:text-white"
                     >
                         <span>{{ $faq->question }}</span>

@@ -18,20 +18,39 @@
         {{-- Filter Tier --}}
         <div class="flex justify-center mb-10">
             <div class="inline-flex items-center gap-1 p-1 rounded-xl bg-slate-100 dark:bg-slatebg-900 border border-slate-200 dark:border-slate-800">
-                <button type="button" data-tier="all" class="tier-filter-btn px-3.5 py-2 rounded-lg text-xs sm:text-sm font-semibold transition-colors cursor-pointer bg-brand-600 text-white shadow-sm">
+                <button
+                    type="button"
+                    @click="activeTier = 'all'"
+                    :class="activeTier === 'all' ? 'bg-brand-600 text-white shadow-sm' : 'text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white'"
+                    class="tier-filter-btn px-3.5 py-2 rounded-lg text-xs sm:text-sm font-semibold transition-colors cursor-pointer"
+                >
                     {{ __('site.packages.filter_all') }}
                 </button>
-                <button type="button" data-tier="beginner" class="tier-filter-btn px-3.5 py-2 rounded-lg text-xs sm:text-sm font-semibold transition-colors cursor-pointer text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white">
+                <button
+                    type="button"
+                    @click="activeTier = 'beginner'"
+                    :class="activeTier === 'beginner' ? 'bg-brand-600 text-white shadow-sm' : 'text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white'"
+                    class="tier-filter-btn px-3.5 py-2 rounded-lg text-xs sm:text-sm font-semibold transition-colors cursor-pointer"
+                >
                     {{ __('site.packages.filter_beginner') }}
                 </button>
-                <button type="button" data-tier="professional" class="tier-filter-btn px-3.5 py-2 rounded-lg text-xs sm:text-sm font-semibold transition-colors cursor-pointer text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white">
+                <button
+                    type="button"
+                    @click="activeTier = 'professional'"
+                    :class="activeTier === 'professional' ? 'bg-brand-600 text-white shadow-sm' : 'text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white'"
+                    class="tier-filter-btn px-3.5 py-2 rounded-lg text-xs sm:text-sm font-semibold transition-colors cursor-pointer"
+                >
                     {{ __('site.packages.filter_professional') }}
                 </button>
             </div>
         </div>
 
-        {{-- Grid Kartu Paket --}}
-        <div id="packages-grid" class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+       {{-- Grid Kartu Paket --}}
+        <div
+            id="packages-grid"
+            class="grid sm:grid-cols-2 gap-6"
+            :class="filteredPackageCount <= 2 ? 'max-w-4xl mx-auto' : 'lg:grid-cols-4'"
+        >
             @foreach ($packages as $pkg)
                 @php
                     $borderCls = $pkg->is_popular
@@ -43,6 +62,8 @@
                 @endphp
 
                 <div
+                    x-show="activeTier === 'all' || activeTier === '{{ $pkg->tier }}'"
+                    x-transition.opacity.duration.200ms
                     data-package-tier="{{ $pkg->tier }}"
                     class="card-hover relative flex flex-col justify-between rounded-2xl p-6 bg-white dark:bg-slatebg-900 {{ $borderCls }}"
                 >

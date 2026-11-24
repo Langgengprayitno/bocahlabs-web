@@ -33,11 +33,10 @@
                     >EN</a>
                 </div>
 
-                {{-- Toggle Tema (diaktifkan penuh di Fase 5) --}}
+                {{-- Toggle Tema Alpine.js --}}
                 <button
                     type="button"
-                    id="theme-toggle-btn"
-                    onclick="const d = document.documentElement.classList.toggle('dark'); localStorage.setItem('bocahlabs_theme', d ? 'dark' : 'light');"
+                    @click="toggleTheme()"
                     aria-label="Toggle Theme"
                     class="p-2 rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-200 hover:border-brand-500 transition-colors"
                 >
@@ -59,13 +58,41 @@
                 {{-- Tombol Menu Mobile --}}
                 <button
                     type="button"
-                    id="mobile-menu-btn"
+                    @click="mobileMenuOpen = !mobileMenuOpen"
+                    :aria-expanded="mobileMenuOpen.toString()"
                     aria-label="Menu"
                     class="md:hidden p-2 rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-200"
                 >
-                    <i data-lucide="menu" class="w-5 h-5"></i>
+                    <i data-lucide="menu" class="w-5 h-5" x-show="!mobileMenuOpen"></i>
+                    <i data-lucide="x" class="w-5 h-5" x-show="mobileMenuOpen" x-cloak></i>
                 </button>
             </div>
+        </div>
+    </div>
+
+    {{-- Drawer Menu Mobile --}}
+    <div
+        x-show="mobileMenuOpen"
+        x-cloak
+        x-transition
+        class="md:hidden border-t border-slate-200 dark:border-slate-800 bg-white dark:bg-slatebg-950 px-4 py-4 space-y-2"
+    >
+        <a href="#paket" @click="mobileMenuOpen = false" class="block px-3 py-2 rounded-lg text-sm font-medium text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">{{ __('site.nav.packages') }}</a>
+        <a href="#addons" @click="mobileMenuOpen = false" class="block px-3 py-2 rounded-lg text-sm font-medium text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">{{ __('site.nav.addons') }}</a>
+        <a href="#galeri" @click="mobileMenuOpen = false" class="block px-3 py-2 rounded-lg text-sm font-medium text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">{{ __('site.nav.gallery') }}</a>
+        <a href="#proses" @click="mobileMenuOpen = false" class="block px-3 py-2 rounded-lg text-sm font-medium text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">{{ __('site.nav.process') }}</a>
+        <a href="#faq" @click="mobileMenuOpen = false" class="block px-3 py-2 rounded-lg text-sm font-medium text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">{{ __('site.nav.faq') }}</a>
+        <div class="pt-2 border-t border-slate-200 dark:border-slate-800">
+            <a
+                href="{{ $waUrl }}"
+                target="_blank"
+                rel="noopener noreferrer"
+                @click="mobileMenuOpen = false"
+                class="w-full inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl text-sm font-semibold bg-brand-600 hover:bg-brand-700 text-white"
+            >
+                <i data-lucide="message-circle" class="w-4 h-4"></i>
+                <span>{{ __('site.nav.consult') }}</span>
+            </a>
         </div>
     </div>
 </header>

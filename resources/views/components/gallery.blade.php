@@ -15,14 +15,17 @@
         </div>
 
         <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            @foreach ($packages as $pkg)
-                <figure class="card-hover group rounded-2xl overflow-hidden bg-white dark:bg-slatebg-900 border border-slate-200 dark:border-slate-800 shadow-sm cursor-pointer">
-                    <div class="relative aspect-[16/10] overflow-hidden bg-slate-100 dark:bg-slatebg-800">
+            @foreach ($packages as $index => $pkg)
+                <figure
+                    @click="openPackageLightbox({{ $index }})"
+                    class="card-hover group rounded-2xl overflow-hidden bg-white dark:bg-slatebg-900 border border-slate-200 dark:border-slate-800 shadow-sm cursor-pointer"
+                >
+                    <div class="relative aspect-square overflow-hidden bg-slate-900 dark:bg-slatebg-950 flex items-center justify-center">
                         <img
                             src="{{ asset($pkg->image_path) }}"
                             alt="{{ $pkg->name }}"
                             loading="lazy"
-                            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                            class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-300"
                         />
                         <span class="absolute bottom-2.5 right-2.5 inline-flex items-center gap-1 px-2.5 py-1 rounded-lg text-[11px] font-semibold bg-slate-900/75 text-white backdrop-blur-sm">
                             <i data-lucide="zoom-in" class="w-3.5 h-3.5"></i>

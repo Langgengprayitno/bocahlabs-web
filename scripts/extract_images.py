@@ -69,7 +69,7 @@ def main() -> None:
         raise RuntimeError("Blok const PACKAGES tidak ditemukan di file HTML.")
 
     pkg_pattern = re.compile(
-        r"id:\s*'([^']+)'.*?image:\s*'data:image/(png|jpeg|jpg|webp);base64,([A-Za-z0-9+/=]+)'",
+        r"id:\s*'([a-z0-9-]+)'\s*,\s*tier:.*?image:\s*'data:image/(png|jpeg|jpg|webp);base64,([A-Za-z0-9+/=]+)'",
         flags=re.DOTALL,
     )
     matches = pkg_pattern.findall(pkg_block_match.group(1))

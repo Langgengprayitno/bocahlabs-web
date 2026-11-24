@@ -4,7 +4,7 @@
     $firstPackage = $packages->first();
 @endphp
 
-<section id="top" class="relative overflow-hidden hero-glow grid-pattern pt-12 pb-20 lg:pt-20 lg:pb-28">
+<section id="top" class="relative overflow-hidden hero-glow grid-pattern pt-10 pb-16 lg:pt-16 lg:pb-24">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="grid lg:grid-cols-12 gap-10 lg:gap-12 items-center">
             {{-- Kolom Kiri: Copywriting & Statistik --}}
@@ -69,8 +69,11 @@
                         @foreach ($packages as $index => $pkg)
                             <button
                                 type="button"
-                                data-preview="{{ $index }}"
-                                class="hero-tab-btn px-3 py-1.5 rounded-lg text-xs font-semibold transition-colors cursor-pointer {{ $index === 0 ? 'bg-brand-600 text-white shadow-sm' : 'bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-300 border border-slate-200 dark:border-slate-700 hover:border-brand-500' }}"
+                                @click="heroPreviewIdx = {{ $index }}"
+                                :class="heroPreviewIdx === {{ $index }}
+                                    ? 'bg-brand-600 text-white shadow-sm'
+                                    : 'bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-300 border border-slate-200 dark:border-slate-700 hover:border-brand-500'"
+                                class="hero-tab-btn px-3 py-1.5 rounded-lg text-xs font-semibold transition-colors cursor-pointer"
                             >
                                 {{ $pkg->name }}
                             </button>
@@ -79,18 +82,23 @@
 
                     {{-- Gambar Preview --}}
                     @if ($firstPackage)
-                        <div class="relative rounded-xl overflow-hidden border border-slate-200 dark:border-slate-800 bg-slate-100 dark:bg-slatebg-950 aspect-[16/10]">
+                        <div
+                            @click="openPackageLightbox(heroPreviewIdx)"
+                            class="relative aspect-square max-w-[440px] mx-auto rounded-xl overflow-hidden border border-slate-200 dark:border-slate-800 bg-slate-900 dark:bg-slatebg-950 flex items-center justify-center cursor-zoom-in group"
+                        >
                             <img
                                 id="hero-preview-img"
-                                src="{{ asset($firstPackage->image_path) }}"
-                                alt="{{ $firstPackage->name }}"
-                                class="w-full h-full object-cover"
+                                :src="currentHeroPackage ? currentHeroPackage.image_url : '{{ asset($firstPackage->image_path) }}'"
+                                :alt="currentHeroPackage ? currentHeroPackage.name : '{{ $firstPackage->name }}'"
+                                class="w-full h-full object-contain group-hover:scale-[1.02] transition-transform duration-300"
                             />
                         </div>
                         <div class="flex items-center justify-between gap-2 mt-3 text-xs text-slate-500 dark:text-slate-400">
-                            <span id="hero-preview-caption" class="font-medium text-slate-700 dark:text-slate-200">
-                                {{ $firstPackage->name }} - {{ $firstPackage->tier_label }}
-                            </span>
+                            <span
+                                id="hero-preview-caption"
+                                class="font-medium text-slate-700 dark:text-slate-200"
+                                x-text="currentHeroPackage ? (currentHeroPackage.name + ' - ' + currentHeroPackage.tier_label) : '{{ $firstPackage->name }} - {{ $firstPackage->tier_label }}'"
+                            ></span>
                             <span>{{ __('site.hero.preview_hint') }}</span>
                         </div>
                     @endif
