@@ -1,0 +1,70 @@
+<?php
+
+return [
+    'meta_title' => 'BocahLabs — Jasa Pembuatan Website Modern',
+    'nav' => [
+        'packages' => 'Paket',
+        'addons' => 'Add-ons',
+        'gallery' => 'Galeri',
+        'process' => 'Alur Kerja',
+        'faq' => 'FAQ',
+        'consult' => 'Konsultasi',
+    ],
+    'hero' => [
+        'badge' => 'Jasa Pembuatan Website UMKM & Bisnis',
+        'title_prefix' => 'Bangun Website Profesional yang',
+        'title_highlight' => 'Cepat, Elegan, & Siap Jualan',
+        'subtitle' => 'Dari landing page UMKM hingga sistem web kustom dengan panel admin. Desain modern, ramah HP, dan langsung terhubung ke WhatsApp bisnis Anda.',
+        'cta_packages' => 'Lihat Daftar Paket',
+        'cta_consult' => 'Konsultasi Gratis',
+        'stat_1_value' => '3–5 Hari',
+        'stat_1_label' => 'Estimasi Mulai',
+        'stat_2_value' => '100%',
+        'stat_2_label' => 'Mobile Friendly',
+        'stat_3_value' => '1 Bulan',
+        'stat_3_label' => 'Garansi Bug Pro',
+        'preview_hint' => 'Klik tab untuk melihat contoh tampilan paket',
+    ],
+    'packages' => [
+        'badge' => 'Daftar Paket',
+        'title' => 'Pilih Paket Sesuai Kebutuhan Usaha Anda',
+        'subtitle' => 'Harga transparan tanpa biaya tersembunyi. Mulai dari kelas Beginner hingga sistem Professional.',
+        'filter_all' => 'Semua Paket',
+        'filter_beginner' => 'Kelas Beginner',
+        'filter_professional' => 'Kelas Professional',
+        'popular_badge' => 'Paling Laris',
+        'select_btn' => 'Pilih Paket Ini',
+    ],
+    'addons' => [
+        'badge' => 'Layanan Tambahan',
+        'title' => 'Optimalkan Website dengan Add-ons Pilihan',
+        'subtitle' => 'Tambahkan dukungan penulisan teks, SEO lokal, hingga perawatan tahunan sesuai kebutuhan.',
+        'add_btn' => 'Tambahkan ke Brief',
+    ],
+    'gallery' => [
+        'badge' => 'Pratinjau Tampilan',
+        'title' => 'Contoh Desain Setiap Tingkatan Paket',
+        'subtitle' => 'Setiap website dirancang bersih, responsif di smartphone, dan selaras dengan identitas usaha Anda.',
+        'zoom_hint' => 'Klik untuk perbesar',
+    ],
+    'process' => [
+        'badge' => 'Alur Pengerjaan',
+        'title' => '4 Langkah Mudah Menuju Website Aktif',
+        'subtitle' => 'Proses transparan dan terarah dari diskusi awal hingga website siap digunakan pelanggan.',
+    ],
+    'faq' => [
+        'badge' => 'Pertanyaan Umum',
+        'title' => 'Hal yang Sering Ditanyakan Klien',
+        'subtitle' => 'Masih ragu atau butuh penjelasan detail? Cek jawaban singkat di bawah ini.',
+    ],
+    'cta' => [
+        'title' => 'Siap Membawa Bisnis Anda Tampil Lebih Kredibel?',
+        'subtitle' => 'Diskusikan kebutuhan website Anda sekarang. Konsultasi awal gratis dan tanpa komitmen.',
+        'button' => 'Mulai Konsultasi via WhatsApp',
+    ],
+    'footer' => [
+        'tagline' => 'Partner pembuatan website modern untuk UMKM, personal brand, dan bisnis berkembang di Indonesia.',
+        'copy' => '© 2026 BocahLabs — Website Development Service. Semua hak dilindungi.',
+    ],
+    'wa_float' => 'Chat WhatsApp',
+];

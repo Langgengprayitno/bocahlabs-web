@@ -1,0 +1,70 @@
+<?php
+
+return [
+    'meta_title' => 'BocahLabs — Website Development Service',
+    'nav' => [
+        'packages' => 'Packages',
+        'addons' => 'Add-ons',
+        'gallery' => 'Gallery',
+        'process' => 'Process',
+        'faq' => 'FAQ',
+        'consult' => 'Consult Now',
+    ],
+    'hero' => [
+        'badge' => 'Website Development for SMEs & Growing Businesses',
+        'title_prefix' => 'Build a Professional Website That Is',
+        'title_highlight' => 'Fast, Elegant, & Built to Convert',
+        'subtitle' => 'From high-converting SME landing pages to custom web systems with admin panels. Modern design, mobile-first, and seamlessly linked to your WhatsApp.',
+        'cta_packages' => 'Explore Packages',
+        'cta_consult' => 'Free Consultation',
+        'stat_1_value' => '3–5 Days',
+        'stat_1_label' => 'Fast Turnaround',
+        'stat_2_value' => '100%',
+        'stat_2_label' => 'Mobile Friendly',
+        'stat_3_value' => '1 Month',
+        'stat_3_label' => 'Pro Bug Warranty',
+        'preview_hint' => 'Click a tab to preview each package layout',
+    ],
+    'packages' => [
+        'badge' => 'Pricing & Plans',
+        'title' => 'Choose the Right Plan for Your Business',
+        'subtitle' => 'Transparent pricing with zero hidden fees—from Beginner tiers to custom Professional systems.',
+        'filter_all' => 'All Plans',
+        'filter_beginner' => 'Beginner Tier',
+        'filter_professional' => 'Professional Tier',
+        'popular_badge' => 'Most Popular',
+        'select_btn' => 'Choose This Plan',
+    ],
+    'addons' => [
+        'badge' => 'Optional Add-ons',
+        'title' => 'Enhance Your Site with Tailored Add-ons',
+        'subtitle' => 'Add persuasive copywriting, local SEO setup, or annual maintenance whenever you need it.',
+        'add_btn' => 'Add to Brief',
+    ],
+    'gallery' => [
+        'badge' => 'Visual Previews',
+        'title' => 'Design Showcase Across Every Tier',
+        'subtitle' => 'Every website is crafted clean, mobile-responsive, and tailored to your brand identity.',
+        'zoom_hint' => 'Click to enlarge',
+    ],
+    'process' => [
+        'badge' => 'How We Work',
+        'title' => '4 Simple Steps to Launch Your Website',
+        'subtitle' => 'A clear, guided workflow from initial discovery to handover and post-launch support.',
+    ],
+    'faq' => [
+        'badge' => 'FAQ',
+        'title' => 'Frequently Asked Questions',
+        'subtitle' => 'Have questions before getting started? Here are quick answers to what clients ask most.',
+    ],
+    'cta' => [
+        'title' => 'Ready to Elevate Your Business Online?',
+        'subtitle' => 'Tell us about your project today. Initial consultation is completely free with no obligation.',
+        'button' => 'Start Consultation on WhatsApp',
+    ],
+    'footer' => [
+        'tagline' => 'Modern website development partner for SMEs, personal brands, and growing businesses.',
+        'copy' => '© 2026 BocahLabs — Website Development Service. All rights reserved.',
+    ],
+    'wa_float' => 'WhatsApp Us',
+];
