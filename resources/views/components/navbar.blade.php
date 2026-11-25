@@ -49,6 +49,7 @@
                     href="{{ $waUrl }}"
                     target="_blank"
                     rel="noopener noreferrer"
+                    @click.prevent="openBriefModal()"
                     class="hidden sm:inline-flex items-center gap-1.5 px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold bg-brand-600 hover:bg-brand-700 text-white shadow-sm shadow-brand-600/20 transition-colors"
                 >
                     <i data-lucide="message-circle" class="w-4 h-4"></i>
@@ -87,12 +88,17 @@
                 href="{{ $waUrl }}"
                 target="_blank"
                 rel="noopener noreferrer"
-                @click="mobileMenuOpen = false"
+                @click.prevent="openBriefModal()"
                 class="w-full inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl text-sm font-semibold bg-brand-600 hover:bg-brand-700 text-white"
             >
                 <i data-lucide="message-circle" class="w-4 h-4"></i>
                 <span>{{ __('site.nav.consult') }}</span>
             </a>
         </div>
+    </div>
+
+    {{-- Scroll-Craft Reading Progress Hairline --}}
+    <div class="h-[2px] w-full bg-transparent overflow-hidden">
+        <div id="sc-scroll-progress" class="sc-progress-bar h-full w-full bg-gradient-to-r from-brand-500 via-brand-400 to-indigo-400"></div>
     </div>
 </header>

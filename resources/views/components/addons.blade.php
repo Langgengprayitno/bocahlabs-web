@@ -15,8 +15,12 @@
         </div>
 
         <div class="grid md:grid-cols-3 gap-6">
-            @foreach ($addons as $addon)
-                <div class="card-hover flex flex-col justify-between rounded-2xl p-6 bg-white dark:bg-slatebg-900 border border-slate-200 dark:border-slate-800 shadow-sm">
+            @foreach ($addons as $index => $addon)
+                <div
+                    data-sc-reveal="wipe"
+                    style="--sc-delay: {{ $index * 110 }}ms;"
+                    class="card-hover flex flex-col justify-between rounded-2xl p-6 bg-white dark:bg-slatebg-900 border border-slate-200 dark:border-slate-800 shadow-sm"
+                >
                     <div>
                         <div class="w-11 h-11 rounded-xl bg-brand-100 dark:bg-brand-900/40 text-brand-600 dark:text-brand-400 flex items-center justify-center mb-4">
                             <i data-lucide="{{ $addon->icon }}" class="w-5 h-5"></i>
@@ -31,6 +35,7 @@
                             href="{{ $waUrl }}"
                             target="_blank"
                             rel="noopener noreferrer"
+                            @click.prevent="openBriefModal(null, '{{ $addon->slug }}')"
                             data-select-addon="{{ $addon->slug }}"
                             class="inline-flex items-center gap-1.5 text-xs font-semibold text-brand-600 dark:text-brand-400 hover:underline"
                         >

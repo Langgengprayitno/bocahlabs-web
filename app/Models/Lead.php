@@ -33,6 +33,8 @@ class Lead extends Model
     protected $fillable = [
         'brand_name',
         'package_id',
+        'marketing_code_id',
+        'promo_code',
         'addon_ids',
         'lang',
         'message',
@@ -54,5 +56,10 @@ class Lead extends Model
     public function package(): BelongsTo
     {
         return $this->belongsTo(Package::class);
+    }
+
+    public function marketingCode(): BelongsTo
+    {
+        return $this->belongsTo(MarketingCode::class);
     }
 }

@@ -1,6 +1,6 @@
 @props(['faqs'])
 
-<section id="faq" class="py-20 bg-white/60 dark:bg-slatebg-950 border-t border-slate-200/70 dark:border-slate-800/70">
+<section id="faq" class="py-20 bg-white/60 dark:bg-slatebg-950 border-t border-slate-200/70 dark:border-slate-800/70 overflow-x-clip">
     <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center mb-12 space-y-3">
             <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-brand-100 text-brand-700 dark:bg-brand-900/50 dark:text-brand-200">
@@ -17,6 +17,7 @@
         <div class="space-y-3">
             @foreach ($faqs as $index => $faq)
                 <div
+                    data-sc-reveal="{{ $index % 2 === 0 ? 'slide-left' : 'slide-right' }}"
                     class="faq-item rounded-2xl bg-white dark:bg-slatebg-900 border border-slate-200 dark:border-slate-800 shadow-sm overflow-hidden"
                     :data-open="openFaq === {{ $index }} ? 'true' : 'false'"
                     data-open="{{ $index === 0 ? 'true' : 'false' }}"

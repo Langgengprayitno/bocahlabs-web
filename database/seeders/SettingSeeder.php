@@ -29,7 +29,7 @@ class SettingSeeder extends Seeder
             'stat_3_label_id' => 'Garansi Bug Pro',
             'stat_3_label_en' => 'Pro Bug Warranty',
             'footer_copy_id' => '© 2026 BocahLabs — Website Development Service. Semua hak dilindungi.',
-            'footer_copy_id' => '© 2026 BocahLabs — Website Development Service. Semua hak dilindungi.',
+            'footer_copy_en' => '© 2026 BocahLabs — Website Development Service. All rights reserved.',
         ];
 
         foreach ($settings as $key => $value) {

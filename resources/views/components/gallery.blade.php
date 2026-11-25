@@ -1,6 +1,6 @@
 @props(['packages'])
 
-<section id="galeri" class="py-20 bg-white/60 dark:bg-slatebg-950 border-t border-slate-200/70 dark:border-slate-800/70">
+<section id="galeri" data-sc-scrub="gallery" class="py-20 bg-white/60 dark:bg-slatebg-950 border-t border-slate-200/70 dark:border-slate-800/70 overflow-x-clip">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center max-w-2xl mx-auto mb-12 space-y-3">
             <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-brand-100 text-brand-700 dark:bg-brand-900/50 dark:text-brand-200">
@@ -14,7 +14,7 @@
             </p>
         </div>
 
-        <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div class="sc-gallery-track grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
             @foreach ($packages as $index => $pkg)
                 <figure
                     @click="openPackageLightbox({{ $index }})"

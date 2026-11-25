@@ -3,8 +3,8 @@
 @section('title', __('site.meta_title'))
 
 @php
-    $waNumber = $settings['wa_number'] ?? '6285667667059';
-    $waUrl = 'https://wa.me/' . preg_replace('/\D+/', '', $waNumber);
+    $waNumber = preg_replace('/\D+/', '', $settings['wa_number'] ?? '6285667667059');
+    $waUrl = 'https://wa.me/' . $waNumber;
 
     $packagesPayload = $packages->map(fn ($pkg) => [
         'id' => $pkg->id,
@@ -15,11 +15,26 @@
         'price_label' => $pkg->price_label,
         'image_url' => asset($pkg->image_path),
     ])->values();
+
+    $addonsPayload = $addons->map(fn ($addon) => [
+        'id' => $addon->id,
+        'slug' => $addon->slug,
+        'name' => $addon->name,
+        'price_label' => $addon->price_label,
+    ])->values();
 @endphp
 
 @section('content')
     <div
-        x-data="bocahLabsApp({ packages: @js($packagesPayload) })"
+        x-data="bocahLabsApp({
+            lang: @js(app()->getLocale()),
+            waNumber: @js($waNumber),
+            leadsUrl: @js(route('leads.store')),
+            copySuccessText: @js(__('site.brief.copied_toast')),
+            packages: @js($packagesPayload),
+            addons: @js($addonsPayload),
+            marketingCodes: @js($marketingCodes),
+        })"
         @keydown.escape.window="closeAllModals()"
     >
         <x-navbar :wa-url="$waUrl" />
@@ -36,6 +51,7 @@
 
         <x-footer :settings="$settings" />
         <x-wa-float :wa-url="$waUrl" />
+        <x-brief-modal :packages="$packages" :addons="$addons" />
         <x-lightbox />
         <x-toast />
     </div>
