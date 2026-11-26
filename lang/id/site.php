@@ -2,6 +2,7 @@
 
 return [
     'meta_title' => 'BocahLabs — Jasa Pembuatan Website Modern',
+    'meta_description' => 'Jasa pembuatan website profesional untuk UMKM, company profile, hingga sistem web kustom dengan panel admin. Cepat, mobile-friendly, dan bergaransi bug 1 bulan.',
     'nav' => [
         'packages' => 'Paket',
         'addons' => 'Add-ons',

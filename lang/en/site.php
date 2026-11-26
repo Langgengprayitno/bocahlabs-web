@@ -2,6 +2,7 @@
 
 return [
     'meta_title' => 'BocahLabs — Website Development Service',
+    'meta_description' => 'Professional website development service for SMEs, company profiles, and custom web systems with admin panels. Fast, mobile-first, with 1-month Pro bug warranty.',
     'nav' => [
         'packages' => 'Packages',
         'addons' => 'Add-ons',

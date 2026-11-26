@@ -8,11 +8,15 @@ use Symfony\Component\HttpFoundation\Response;
 
 class SetLocale
 {
-    /**
-     * Terapkan bahasa aplikasi dari session/cookie (default: id).
-     */
     public function handle(Request $request, Closure $next): Response
     {
+        $queryLang = $request->query('lang');
+        if (is_string($queryLang) && in_array($queryLang, ['id', 'en'], true)) {
+            app()->setLocale($queryLang);
+
+            return $next($request);
+        }
+
         $locale = $request->session()->get('locale', $request->cookie('bocahlabs_lang', 'id'));
 
         if (! in_array($locale, ['id', 'en'], true)) {
